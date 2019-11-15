@@ -1,0 +1,26 @@
+{
+  "name": "actions",
+  "version": "1.0.0",
+  "description": "Testing github actions",
+  "main": "index.ts",
+  "dependencies": {
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "lint": "tslint -c tslint.json '*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovenm/actions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lovenm/actions/issues"
+  },
+  "homepage": "https://github.com/lovenm/actions#readme"
+}
