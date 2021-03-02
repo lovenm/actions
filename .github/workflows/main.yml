@@ -2,26 +2,22 @@ name: CI
 
 on: [push]
 
+env:
+  stuff: "wow"
+  
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
-    env:
-      stuff: "wow"
-
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
       with:
         node-version: '12.13'
-
     - name: Cache node_modules
       uses: actions/cache@v1
       with:
         path: node_modules
         key: ${{ runner.os }}-node-modules
-
     - name: Set up deps
       run: npm install
     - name: Lint
