@@ -26,3 +26,19 @@ jobs:
       run: npm run compile
     - name: Run app ${{ env.stuff }}
       run: node ./dist/index.js
+
+  job1:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Set output
+      id: set-output
+      run: echo "::set-output name=TEST_OUTPUT::testing"
+    outputs:
+      TEST_OUTPUT: ${{ steps.set-output.outputs.TEST_OUTPUT }}
+      
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps: 
+      - name: Am I ${{ needs.job1.outputs.TEST_OUTPUT }}
+        run: echo "Woot"
