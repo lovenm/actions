@@ -37,7 +37,7 @@ jobs:
       TEST_OUTPUT: ${{ steps.set-output.outputs.TEST_OUTPUT }}
       
   job2:
-    name: ${{ env.stuff }} ${{ needs.job1.outputs.TEST_OUTPUT }}
+    name: Job ${{ env.stuff }} ${{ needs.job1.outputs.TEST_OUTPUT }}
     runs-on: ubuntu-latest
     needs: job1
     steps: 
