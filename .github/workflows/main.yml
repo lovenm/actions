@@ -6,6 +6,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    
+    env:
+      stuff: "wow"
 
     steps:
     - uses: actions/checkout@v1
@@ -25,5 +28,5 @@ jobs:
       run: npm run lint
     - name: Compile
       run: npm run compile
-    - name: Run app
+    - name: Run app ${{ env.stuff }}
       run: node ./dist/index.js
