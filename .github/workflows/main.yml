@@ -4,6 +4,7 @@ on: [push]
 
 env:
   stuff: "wow"
+  starts: ${{ startsWith(github.ref, 'refs/tags/asd') }}
   
 jobs:
   build:
@@ -32,7 +33,9 @@ jobs:
     steps: 
     - name: Set output
       id: set-output
-      run: echo "::set-output name=TEST_OUTPUT::testing"
+      run: |
+        echo "$starts"
+        echo "::set-output name=TEST_OUTPUT::testing"
     outputs:
       TEST_OUTPUT: ${{ steps.set-output.outputs.TEST_OUTPUT }}
       
