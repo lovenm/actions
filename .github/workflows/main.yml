@@ -34,7 +34,7 @@ jobs:
     - name: Set output
       id: set-output
       run: |
-        echo "$starts"
+        echo "${{ env.starts }}"
         echo "::set-output name=TEST_OUTPUT::testing"
     outputs:
       TEST_OUTPUT: ${{ steps.set-output.outputs.TEST_OUTPUT }}
