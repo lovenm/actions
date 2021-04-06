@@ -5,6 +5,7 @@ on: [push]
 env:
   stuff: "wow"
   starts: ${{ startsWith(github.ref, 'refs/tags/asd') }}
+  returns: ${{ github.event_name == 'push' }}
   
 jobs:
   build:
@@ -45,3 +46,5 @@ jobs:
     steps: 
       - name: Am I ${{ needs.job1.outputs.TEST_OUTPUT }}
         run: echo "Woot"
+      - name: Returns
+        run: echo $returns
