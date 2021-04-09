@@ -32,11 +32,13 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps: 
-    - name: Set output
-      id: set-output
-      run: |
-        echo "${{ env.starts }}"
-        echo "::set-output name=TEST_OUTPUT::testing"
+      - name: Set output
+        id: set-output
+        run: |
+          echo "${{ env.starts }}"
+          echo "::set-output name=TEST_OUTPUT::testing"
+      - name: Set env var
+        run: echo "super_var666=123" >> $GITHUB_ENV
     outputs:
       TEST_OUTPUT: ${{ steps.set-output.outputs.TEST_OUTPUT }}
       
@@ -47,4 +49,6 @@ jobs:
       - name: Am I ${{ needs.job1.outputs.TEST_OUTPUT }}
         run: echo "Woot"
       - name: Returns
-        run: echo $returns
+        run: echo "$returns"
+      - name: Env var
+        run: echo "$super_var666"
