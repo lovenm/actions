@@ -45,14 +45,15 @@ jobs:
   job2:
     runs-on: ubuntu-latest
     needs: job1
-    env:
-      stuffIs: ${{ env.stuff == 'wow' }}
     steps: 
       - name: Am I ${{ needs.job1.outputs.TEST_OUTPUT }}
         run: echo "Woot"
       - name: Returns
         run: echo "$returns"
+        
       - name: Env var
         run: echo "$super_var666"
       - name: stuff is
+        env:
+          stuffIs: ${{ env.stuff == 'wow' }}
         run: echo "$stuffIs
