@@ -6,6 +6,7 @@ env:
   stuff: "wow"
   starts: ${{ startsWith(github.ref, 'refs/tags/asd') }}
   returns: ${{ github.event_name == 'push' }}
+  stuffIs: ${{ env.stuff == 'wow' }}
   
 jobs:
   build:
@@ -52,3 +53,5 @@ jobs:
         run: echo "$returns"
       - name: Env var
         run: echo "$super_var666"
+      - name: stuff is
+        run: echo "$stuffIs
