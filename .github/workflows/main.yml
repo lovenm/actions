@@ -50,10 +50,5 @@ jobs:
         run: echo "Woot"
       - name: Returns
         run: echo "$returns"
-        
       - name: Env var
         run: echo "$super_var666"
-      - name: stuff is
-        env:
-          stuffIs: ${{ env.stuff == 'wow' }}
-        run: echo "$stuffIs
