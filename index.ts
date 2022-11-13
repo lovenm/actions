@@ -1,3 +1,3 @@
-const num: number = Math.floor(Math.random() * 100);
+const num: number = Math.floor(Math.random() * 100)
 
-console.log(`Hello world ${num}!`);
+console.log(`Hello world ${num}!`)
